@@ -57,12 +57,30 @@ You can run this project in several ways.
 
 ### Using `docker-compose`
 
+Before running `docker-compose up`, ensure that the Docker image has been built using `make docker-build`.
+
 The `docker-compose.yml` file is pre-configured to run the proxy.
 
 1.  Update the `CALENDAR_URL` in `docker-compose.yml` to your desired calendar URL.
 2.  Start the service:
     ```sh
     docker-compose up -d
+    ```
+
+### Docker Image Management
+
+You can save the built Docker image to a `.tar` file and transfer it to another machine.
+
+1.  **Save the Docker image:**
+    ```sh
+    make save-image
+    ```
+    This will create a `calendar-proxy.tar` file in the project root.
+
+2.  **Load the Docker image on another machine:**
+    Transfer the `calendar-proxy.tar` file to the target machine and run:
+    ```sh
+    docker load -i calendar-proxy.tar
     ```
 
 ## Configuration
