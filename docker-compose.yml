@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  calendar-proxy:
+    image: calendar-proxy:latest
+    container_name: calendar-proxy
+    ports:
+      - "8080:8080"
+    environment:
+      - CALENDAR_URL=https://example.com/calendar.ics
+    restart: unless-stopped
